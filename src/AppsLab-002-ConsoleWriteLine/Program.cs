@@ -1,1 +1,4 @@
-﻿Console.WriteLine("Hello, World!");
+﻿
+
+//Vypise na konzoli text
+Console.WriteLine("Hello,Rado!");
