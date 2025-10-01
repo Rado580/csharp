@@ -116,6 +116,7 @@ namespace Cvicenie_Cykly
                 Console.WriteLine(row);
             }*/
 
+            /*
             Console.WriteLine("Kolko riadkov?:");
             string riadokText = Console.ReadLine();
             int riadok = int.Parse(riadokText);
