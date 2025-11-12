@@ -9,7 +9,7 @@ namespace Cvicenie_BattleSimulator
     public class Hero
     {
         public string Name { get; set; } = "Arnost";  //Hero name
-        public int HP { get; set; } = 100;    //Health points
+        public int HP { get; set; } = 150;    //Health points
         public int DMG { get; set; } = 10;   //Damage
         public int ENG { get; set; } = 100;       //Energy
         public int SHD { get; set; } = 15;         //Shield
@@ -28,24 +28,26 @@ namespace Cvicenie_BattleSimulator
                 ENG = ENG + 50;  //ak nema dost energy, tak si ju trochu obnovi
                 return false;
             }
+        }
 
-            public bool HeroAttack2(Monster2 monster2)
+
+        public bool HeroAttack2(Monster2 monster2)
+        {
+            if (ENG - 20 >= 0)
             {
-                if (ENG - 20 >= 0)
-                {
-                    ENG = ENG - 20;         //za jeden utok sa odcita 20 energy
-                    monster2.HP2 = monster2.HP2 - DMG;  //zrani monstrum
-                    return true;
-                }
-                else
-                {
-                    ENG = ENG + 50;  //ak nema dost energy, tak si ju trochu obnovi
-                    return false;
-                }
+                ENG = ENG - 20;         //za jeden utok sa odcita 20 energy
+                monster2.HP2 = monster2.HP2 - DMG;  //zrani monstrum
+                return true;
+            }
+            else
+            {
+                ENG = ENG + 50;  //ak nema dost energy, tak si ju trochu obnovi
+                return false;
             }
         }
     }
 }
+
 
 
 

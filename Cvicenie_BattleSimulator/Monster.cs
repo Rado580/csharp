@@ -20,8 +20,7 @@ namespace Cvicenie_BattleSimulator
         }
 
         public void MonsterAttack(Hero hero)
-        {
-            if (hero.SHD > DMG)
+        {   if (hero.SHD > DMG)
             {
                 hero.HP = hero.HP - 0;
             }
