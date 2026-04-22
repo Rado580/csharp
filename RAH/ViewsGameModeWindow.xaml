@@ -1,0 +1,88 @@
+﻿<Window x:Class="_2p_games.ViewsGameModeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Vyber mód" Height="340" Width="380"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#1a1a2e">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="280">
+
+            <TextBlock Text="❌ Piškvorky ⭕"
+                       FontSize="26" FontWeight="Bold"
+                       Foreground="#e94560"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,8"/>
+
+            <TextBlock Text="Vyber mód hry"
+                       FontSize="15"
+                       Foreground="#a8a8b3"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,30"/>
+
+            <!-- Hráč vs AI -->
+            <Button x:Name="BtnVsAI"
+                    Content="  Hráč vs AI"
+                    Height="60" FontSize="19" FontWeight="SemiBold"
+                    Margin="0,0,0,14"
+                    Click="BtnVsAI_Click"
+                    Cursor="Hand">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#e94560"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}"
+                                            CornerRadius="12" Padding="10">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#c73652"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <!-- Hráč vs Hráč -->
+            <Button x:Name="BtnVsPlayer"
+                    Content="  Hráč vs Hráč"
+                    Height="60" FontSize="19" FontWeight="SemiBold"
+                    Margin="0,0,0,14"
+                    Click="BtnVsPlayer_Click"
+                    Cursor="Hand">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#0f3460"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}"
+                                            CornerRadius="12" Padding="10">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#1a5490"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+        </StackPanel>
+    </Grid>
+</Window>

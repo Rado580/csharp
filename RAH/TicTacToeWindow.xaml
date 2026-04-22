@@ -1,0 +1,124 @@
+﻿<Window x:Class="_2p_games.Views.TicTacToeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Piškvorky" Height="600" Width="500"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#1a1a2e">
+
+    <Window.Resources>
+        <Style x:Key="CellStyle" TargetType="Button">
+            <Setter Property="Background" Value="#16213e"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="48"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#0f3460"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="12">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#1e2d50"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Nadpis -->
+        <TextBlock Grid.Row="0" Text="❌ Piškvorky ⭕"
+                   FontSize="28" FontWeight="Bold"
+                   Foreground="#e94560"
+                   HorizontalAlignment="Center"
+                   Margin="0,10,0,10"/>
+
+        <!-- Status hráča -->
+        <Border Grid.Row="1" 
+                Background="#16213e" CornerRadius="10" 
+                Padding="12,8" Margin="0,0,0,20">
+            <TextBlock x:Name="StatusText"
+                       Text="Na rade: Hráč X"
+                       FontSize="18" FontWeight="SemiBold"
+                       Foreground="#e94560"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- Herná plocha 3x3 -->
+        <Grid Grid.Row="2" x:Name="GameGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="110"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="110"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Riadok 0 -->
+            <Button Grid.Row="0" Grid.Column="0" x:Name="Btn00" Click="Cell_Click" Tag="0,0" Style="{StaticResource CellStyle}"/>
+            <Button Grid.Row="0" Grid.Column="1" x:Name="Btn01" Click="Cell_Click" Tag="0,1" Style="{StaticResource CellStyle}"/>
+            <Button Grid.Row="0" Grid.Column="2" x:Name="Btn02" Click="Cell_Click" Tag="0,2" Style="{StaticResource CellStyle}"/>
+
+            <!-- Riadok 1 -->
+            <Button Grid.Row="1" Grid.Column="0" x:Name="Btn10" Click="Cell_Click" Tag="1,0" Style="{StaticResource CellStyle}"/>
+            <Button Grid.Row="1" Grid.Column="1" x:Name="Btn11" Click="Cell_Click" Tag="1,1" Style="{StaticResource CellStyle}"/>
+            <Button Grid.Row="1" Grid.Column="2" x:Name="Btn12" Click="Cell_Click" Tag="1,2" Style="{StaticResource CellStyle}"/>
+
+            <!-- Riadok 2 -->
+            <Button Grid.Row="2" Grid.Column="0" x:Name="Btn20" Click="Cell_Click" Tag="2,0" Style="{StaticResource CellStyle}"/>
+            <Button Grid.Row="2" Grid.Column="1" x:Name="Btn21" Click="Cell_Click" Tag="2,1" Style="{StaticResource CellStyle}"/>
+            <Button Grid.Row="2" Grid.Column="2" x:Name="Btn22" Click="Cell_Click" Tag="2,2" Style="{StaticResource CellStyle}"/>
+        </Grid>
+
+        <!-- Tlačidlo reset -->
+        <Button Grid.Row="3" Content="🔄 Nová hra"
+                Height="50" FontSize="16" FontWeight="SemiBold"
+                Margin="0,20,0,10"
+                Click="BtnReset_Click"
+                Cursor="Hand">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#0f3460"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="10" Padding="10">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#1a5490"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+    </Grid>
+</Window>
